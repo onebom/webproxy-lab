@@ -1,0 +1,10 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	password = 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
+	name = mrsuit0114
+	email = woosa0114@gmail.com
