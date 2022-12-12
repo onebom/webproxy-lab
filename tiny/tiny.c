@@ -59,7 +59,7 @@ void doit(int fd)
   sscanf(buf, "%s %s %s", method, uri, version);  /* buf를 Parse. */
 
   /* 만약 method가 GET방식이나 HEAD 방식이 아니라면 clienterror로 연결합니다. */
-  if (strcasecmp(method, "GET") == 0) {
+  if (strcasecmp(method, "GET") != 0) {
     clienterror(fd, method, "501", "Not implemented", "Tiny does not implement this method");
     return;
   }

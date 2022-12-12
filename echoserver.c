@@ -22,7 +22,7 @@ int main(int argc,char **argv){
         exit(0);
     }
 
-    listenfd = Open_listenfd(argv[1]);
+    listenfd = Open_listenfd(argv[1]);  //socket하는 과정은 왜 없이 바로 listen? getaddrinfo도없고.. socket bind listen accept 순서.. 함수에 다있음
     while(1){
         clientlen = sizeof(struct sockaddr_storage);
         connfd = Accept(listenfd, (SA *)&clientaddr,&clientlen);
