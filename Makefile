@@ -8,13 +8,13 @@ CC = gcc
 CFLAGS = -g -Wall
 LDFLAGS = -lpthread
 
-# all: proxy
+all: proxy
 all: echo_client echo_server
 
 
 # 에코서버 테스트------------------------------------------------------
-echo_client: echoclient.c csapp.o
-	$(CC) $(CFLAGS) -o echo_client echoclient.c csapp.o $(LDFLAGS)
+echo_client: echoclient.c csapp.o   #재료 -o 실행파일 이름..  재료 나열.. 목적파일만 있어야하는거아님?
+	$(CC) $(CFLAGS) -o echo_client echoclient.c csapp.o $(LDFLAGS)  
 echo_server: echoserver.c csapp.o
 	$(CC) $(CFLAGS) -o echo_server echoserver.c csapp.o $(LDFLAGS)
 csapp.o: csapp.c
@@ -36,6 +36,6 @@ handin:
 	(make clean; cd ..; tar cvf $(USER)-proxylab-handin.tar proxylab-handout --exclude tiny --exclude nop-server.py --exclude proxy --exclude driver.sh --exclude port-for-user.pl --exclude free-port.sh --exclude ".*")
 
 clean:
-#	rm -f *~ *.o proxy core *.tar *.zip *.gzip *.bzip *.gz
+	rm -f *~ *.o proxy core *.tar *.zip *.gzip *.bzip *.gz
 	rm -f *~ *.o echo_client echo_server core *.tar *.zip *.gzip *.bzip *.gz
 

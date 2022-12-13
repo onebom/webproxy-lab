@@ -34,9 +34,9 @@ int main(int argc, char **argv) {
     clientlen = sizeof(clientaddr);
     connfd = Accept(listenfd, (SA *)&clientaddr,
                     &clientlen);  // line:netp:tiny:accept
-    Getnameinfo((SA *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE,
-                0);
-    printf("Accepted connection from (%s, %s)\n", hostname, port);
+    // Getnameinfo((SA *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE,
+    //             0);
+    // printf("Accepted connection from (%s, %s)\n", hostname, port);
     doit(connfd);   // line:netp:tiny:doit
     Close(connfd);  // line:netp:tiny:close
   }
@@ -176,7 +176,7 @@ void serve_static(int fd, char *filename, int filesize, char *method)
   srcp = (char*)Malloc(filesize);
   Rio_readn(srcfd, srcp, filesize);
   Close(srcfd);
-  Rio_writen(fd, srcp, filesize);  //주소 srcp에서 시작하는 filesizw 바이트를 클라이언트의 연결 식별자로 복사한다,
+  Rio_writen(fd, srcp, filesize);  //주소 srcp에서 시작하는 filesize 바이트를 클라이언트의 연결 식별자로 복사한다,
   free(srcp);
 }
 

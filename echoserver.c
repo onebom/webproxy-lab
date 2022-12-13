@@ -1,6 +1,6 @@
 #include "csapp.h"
 
-void echo(int connfd){
+void echo(int connfd){  //11.6.A
     size_t n;
     char buf[MAXLINE];
     rio_t rio;

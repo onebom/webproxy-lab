@@ -9,14 +9,22 @@ int main(void) {
   char arg1[MAXLINE], arg2[MAXLINE],content[MAXLINE];
   int n1=0,n2=0;
 
-  if((buf=getenv("QUERY_STRING"))!=NULL){
-    p=strchr(buf,'&');
-    *p='\0';  //이거 무슨뜻임? 문자열로생각해서 NULL을 넣은건가?...
-    strcpy(arg1,buf);
-    strcpy(arg2,p+1);
-    n1 = atoi(arg1);
-    n2 = atoi(arg2);
+  // if((buf=getenv("QUERY_STRING"))!=NULL){
+  //   p=strchr(buf,'&');
+  //   *p='\0';  //이거 무슨뜻임? 문자열로생각해서 NULL을 넣은건가?...
+  //   strcpy(arg1,buf);
+  //   strcpy(arg2,p+1);
+  //   n1 = atoi(arg1);
+  //   n2 = atoi(arg2);
+  // }
+
+  if ((buf = getenv("QUERY_STRING")) != NULL) {
+    p = strchr(buf, '&');
+    *p = '\0';
+    sscanf(buf, "first=%d", &n1);
+    sscanf(p+1, "second=%d", &n2);
   }
+
 
   sprintf(content,"QUERY_STRING=%s",buf);
   sprintf(content,"welcome to add.com:");
